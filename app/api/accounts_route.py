@@ -1,3 +1,15 @@
+"""
+This module defines API endpoints for account-related operations in the banking system.
+
+Routes included:
+- POST /create-account: Create a new customer account.
+- POST /fund: Fund an existing customer account.
+- POST /withdraw: Withdraw funds from a customer account.
+
+Each route delegates business logic to the account service layer and handles exceptions
+gracefully, returning appropriate HTTP responses. Logging is included for monitoring
+and debugging purposes.
+"""
 
 from fastapi import FastAPI, HTTPException, APIRouter, status
 
@@ -27,9 +39,8 @@ import asyncio
 logger = logging.getLogger(__name__)
 accounts_router = APIRouter()
 
-@accounts_router.post ("/create-account")
+@accounts_router.post("/create-account")
 async def create_account(data: CreateAccountRequest):
-    
     try:
         await create_customer_account(data.customer_id)
         logger.info(f"created the customer with customer id {data.customer_id}")
@@ -40,27 +51,26 @@ async def create_account(data: CreateAccountRequest):
         logger.error(f"Something went wrong and details are {str(e)} - data -  {data.customer_id}")
         raise HTTPException(status_code=500, detail="Something went wrong. Please try again.")
 
-@accounts_router.post ("/fund")
+@accounts_router.post("/fund")
 async def fund_account(data: FundAccountRequest):
     try:
-        balance = await  fund_customer_account (data.customer_id,data.amount) # 5 seconds
+        balance = await fund_customer_account(data.customer_id, data.amount)
         logger.info(f"Funded customer account with id {data.customer_id} with amount {data.amount} and balance is {balance}")
-        return {"message" : f"Funded customer account with id {data.customer_id} with amount {data.amount} and balance is {balance}"}
+        return {"message": f"Funded customer account with id {data.customer_id} with amount {data.amount} and balance is {balance}"}
     except AccountNotFoundException:
         raise account_not_found_exception()
     except Exception as e:
-        raise HTTPException (status_code=400, detail= str(e))
-    
-@accounts_router.post ("/withdraw")
+        raise HTTPException(status_code=400, detail=str(e))
+
+@accounts_router.post("/withdraw")
 async def withdraw_from_account(data: WithdrawRequest):
     try:
-        balance  = await withdraw_from_customer_account(data.customer_id, data.amount)
+        balance = await withdraw_from_customer_account(data.customer_id, data.amount)
         logger.info(f"Amount of Rs. {data.amount} is withdrawn for customer {data.customer_id} final balance is {balance}")
-        return {"message" : f"Amount of Rs. {data.amount} is withdrawn for customer {data.customer_id} final balance is {balance}"}
+        return {"message": f"Amount of Rs. {data.amount} is withdrawn for customer {data.customer_id} final balance is {balance}"}
     except InsufficientBalanceException:
         raise insufficient_balance_exception()
     except AccountNotFoundException:
         raise account_not_found_exception()
     except Exception as e:
-        raise HTTPException (status_code=400, detail= "Parent is called")
-    
+        raise HTTPException(status_code=400, detail="Parent is called")
