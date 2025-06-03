@@ -12,12 +12,32 @@ Defined Request Schemas:
 from pydantic import BaseModel
 
 class CreateAccountRequest(BaseModel):
+    """
+    Request schema for creating a new customer account.
+
+    Attributes:
+        customer_id (str): Unique identifier for the customer.
+    """
     customer_id: str
 
 class FundAccountRequest(BaseModel):
+    """
+    Request schema for funding an existing customer account.
+
+    Attributes:
+        customer_id (str): Unique identifier for the customer.
+        amount (float): Amount to be added to the account.
+    """
     customer_id: str
     amount: float
 
 class WithdrawRequest(BaseModel):
+    """
+    Request schema for withdrawing funds from a customer account.
+
+    Attributes:
+        customer_id (str): Unique identifier for the customer.
+        amount (float): Amount to be withdrawn from the account.
+    """
     customer_id: str
     amount: float

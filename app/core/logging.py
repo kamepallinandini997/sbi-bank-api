@@ -21,8 +21,18 @@ LOG_FILE = Path("logs/bank_api.log").absolute()
 # LOG_FILE = C:\Github\fullstack-agentic-ai\articles\fastapi\code-samples\sbi-bank-api-mvp\app\logs\bank-api.log.txt
 
 def configure_logger():
-    """Configure the logging for the application : Console and File Logging (Rotational)"""
+    """
+    Configure and return a logger with console and rotating file handlers.
 
+    - Creates log directory if it doesn't exist.
+    - Sets INFO log level.
+    - Adds console handler for stdout.
+    - Adds rotating file handler to manage log file size and backups.
+    - Applies consistent formatting to all handlers.
+
+    Returns:
+        logging.Logger: Configured root logger instance.
+    """
     os.makedirs(os.path.dirname(LOG_FILE), exist_ok=True)
     
     # Configure root logger
