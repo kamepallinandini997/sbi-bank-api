@@ -4,3 +4,11 @@
 2025-06-02 16:23:18,611 - app.services.account_service - WARNING - account already exists with customer id B123511
 2025-06-02 16:32:58,415 - app.api.accounts_route - INFO - created the customer with customer id B123511
 2025-06-02 16:33:04,918 - app.services.account_service - WARNING - account already exists with customer id B123511
+2025-06-03 15:06:07,743 - app.api.accounts_route - INFO - created the customer with customer id C123511
+2025-06-03 15:15:03,361 - app.services.account_service - WARNING - account does not exists with customer id P123511
+2025-06-03 15:15:18,880 - app.api.accounts_route - INFO - created the customer with customer id P123511
+2025-06-03 15:15:28,783 - app.api.accounts_route - INFO - Funded customer account with id P123511 with amount 10000.0 and balance is 10000.0
+2025-06-03 15:19:27,989 - app.services.account_service - WARNING - account already exists with customer id P123511
+2025-06-03 15:19:59,328 - app.api.accounts_route - INFO - created the customer with customer id P123ui68756511
+2025-06-03 15:35:24,133 - app.api.accounts_route - INFO - Funded customer account with id P123511 with amount 100000000.0 and balance is 100010000.0
+2025-06-03 15:44:53,261 - app.api.accounts_route - INFO - Amount of Rs. 500.0 is withdrawn for customer P123511 final balance is 100009500.0
