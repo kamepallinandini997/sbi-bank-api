@@ -1,0 +1,5 @@
+name: sbi-bank-api-poc
+channels:
+  - conda-forge
+  - defaults
+prefix: C:\Users\Smart\.conda\envs\sbi-bank-api-poc

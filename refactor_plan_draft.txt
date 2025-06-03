@@ -1,0 +1,23 @@
+1. Organize Code into Folders, 
+2. Naming Conventions for Folders and Classes
+3. Exception Handling - Deine Custom Exceptions where needed 
+4. Logging  -> Log messages, Log Errors, Log Info, Log Debug
+5. Code Normalisation - Clean main.py
+
+
+Todo : Points 3,4 - Resolved
+1. Fix the issue of Duplicate entry in the Logfile.
+2. Test all 3 endpoints end to end and verify messages on Logfile and Screen.
+
+
+5. Code Normalisation - Clean main.py
+
+Routes => Router 
+
+
+# import asyncio
+# import logging
+
+# from app.core.logging import configure_logger
+# from app.models.schemas import CreateAccountRequest, FundAccountRequest, WithdrawRequest
+# from app.services.account_service import create_customer_account, fund_customer_account, withdraw_from_customer_account

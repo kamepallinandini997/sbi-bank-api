@@ -1,0 +1,6 @@
+2025-06-02 16:22:59,196 - app.services.account_service - WARNING - account does not exists with customer id B123511
+2025-06-02 16:23:10,681 - app.services.account_service - WARNING - account does not exists with customer id P123511
+2025-06-02 16:23:16,766 - app.api.accounts_route - INFO - created the customer with customer id B123511
+2025-06-02 16:23:18,611 - app.services.account_service - WARNING - account already exists with customer id B123511
+2025-06-02 16:32:58,415 - app.api.accounts_route - INFO - created the customer with customer id B123511
+2025-06-02 16:33:04,918 - app.services.account_service - WARNING - account already exists with customer id B123511
