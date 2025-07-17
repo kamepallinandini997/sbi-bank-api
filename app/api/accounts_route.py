@@ -34,7 +34,6 @@ from app.services.account_service import (
 )
 
 import logging
-import asyncio
 
 logger = logging.getLogger(__name__)
 accounts_router = APIRouter()
